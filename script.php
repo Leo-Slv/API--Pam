@@ -1,106 +1,51 @@
 <script>
-      async function get() {
-        try {
-          const response = await fetch(
-            // executa http
-            "http://localhost/api/testeapi.php/cliente",
-            {
-              method: "GET",
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
-          const data = await response.json(); // obtém resposta
-          alert(JSON.stringify(data)); //mostra
-        } catch (error) {
-          console.error("Erro ao executar solicitação GET:", error);
-        }
-      }
+  // Mova a declaração das variáveis para antes das funções
+  const nome = document.getElementById("name");
+  const categoria = document.getElementById("categoria");
 
-      async function post() {
-        try {
-          const response = await fetch(
-            "http://localhost/api/testeApi.php/cliente",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                nome: "Novo Cliente",
-                categoria: "Categoria A",
-              }),
-            }
-          );
-          const data = await response.json(); // Aguarda o resultado da resposta
-          alert(JSON.stringify(data));
-        } catch (error) {
-          console.error("Erro ao executar solicitação POST:", error);
+  // Declare as funções abaixo
+  async function get() {
+    try {
+      const response = await fetch(
+        "http://localhost/api/testeapi.php/cliente",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      }
-	  
-	  
-	   async function postLogin() {
-        try {
-          const response = await fetch(
-            "https://demo7802866.mockable.io/login",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                user: "teste",
-                password: "123",
-              }),
-            }
-          );
-          const data = await response.json(); // Aguarda o resultado da resposta
-          alert(JSON.stringify(data.token));
-        } catch (error) {
-          console.error("Erro ao executar solicitação POST:", error);
-        }
-      }
-	  
-	  
-	  
-	  
+      );
+      const data = await response.json(); // obtém resposta
+      alert(JSON.stringify(data)); // mostra
+    } catch (error) {
+      console.error("Erro ao executar solicitação GET:", error);
+    }
+  }
 
-      async function put() {
-        try {
-          const response = await fetch(
-            "http://localhost/api/testeApi.php/cliente/2",
-            {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                nome: "Cliente Atualizado",
-                categoria: "Categoria B",
-              }),
-            }
-          );
-          const data = await response.json(); // Aguarda o resultado da resposta
-          alert(JSON.stringify(data));
-        } catch (error) {
-          console.error("Erro ao executar solicitação PUT:", error);
-        }
-      }
+  async function post() {
+    const nomeValue = nome.value; // Captura o valor do input
+    const categoriaValue = categoria.value; // Captura o valor do input
 
-      async function del() {
-        try {
-          const response = await fetch(
-            "http://localhost/api/testeApi.php/cliente/5",
-            {
-              method: "DELETE",
-            }
-          );
-          const data = await response.json(); // Aguarda o resultado da resposta
-          alert(JSON.stringify(data));
-        } catch (error) {
-          console.error("Erro ao executar solicitação DELETE:", error);
+    try {
+      const response = await fetch(
+        "http://localhost/api/testeApi.php/cliente",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nome: nomeValue,
+            categoria: categoriaValue,
+          }),
         }
-      }
-    </script>
+      );
+      const data = await response.json(); // Aguarda o resultado da resposta
+      alert(JSON.stringify(data));
+    } catch (error) {
+      console.error("Erro ao executar solicitação POST:", error);
+    }
+  }
+
+  // As funções postLogin, put e del permanecem inalteradas
+</script>

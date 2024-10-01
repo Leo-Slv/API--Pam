@@ -12,12 +12,12 @@ require_once "header.php";
     </header>
     <main class="text-white font-bold grid grid-cols-1 gap-4 p-4">
       <label>Nome</label>
-      <input type="text" rows="1" class="rounded-lg text-slate-900 text-xl pl-2" placeholder="Insira o Nome"></input>
+      <input id="name"type="text" rows="1" class="rounded-lg text-slate-900 text-xl pl-2" placeholder="Insira o Nome"></input>
       <label>Categoria</label>
-      <input type="text" rows="1" class="rounded-lg text-slate-900 text-xl pl-2" placeholder="Insira a Categoria"></input>
+      <input id="categoria" type="text" rows="1" class="rounded-lg text-slate-900 text-xl pl-2" placeholder="Insira a Categoria"></input>
     </main>
     <footer class="flex align-end justify-end">
-      <button id= ""class="bg-blue-700 text-white w-20 rounded-lg p-2 font-bold text-sm mr-2" onclick="post()">Cadastrar</button>
+      <button class="bg-blue-700 text-white w-20 rounded-lg p-2 font-bold text-sm mr-2" onclick="post()">Cadastrar</button>
       <button id="close-modal" class="bg-red-600 text-white w-20 rounded-lg p-2 font-bold text-sm">Fechar</button>
     </footer>
   </section>
