@@ -7,7 +7,7 @@
   async function get() {
     try {
       const response = await fetch(
-        "http://localhost/api/testeapi.php/cliente",
+        "http://localhost/API--Pam/testeapi.php/cliente",
         {
           method: "GET",
           headers: {
@@ -28,7 +28,7 @@
 
     try {
       const response = await fetch(
-        "http://localhost/api/testeApi.php/cliente",
+        "http://localhost/API--Pam/testeApi.php/cliente",
         {
           method: "POST",
           headers: {
@@ -47,5 +47,61 @@
     }
   }
 
-  // As funções postLogin, put e del permanecem inalteradas
-</script>
+  async function postLogin() {
+        try {
+          const response = await fetch(
+            "https://demo7802866.mockable.io/login",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                user: "teste",
+                password: "123",
+              }),
+            }
+          );
+          const data = await response.json(); // Aguarda o resultado da resposta
+          alert(JSON.stringify(data.token));
+        } catch (error) {
+          console.error("Erro ao executar solicitação POST:", error);
+        }
+      }
+      async function put() {
+        try {
+          const response = await fetch(
+            "http://localhost/API--Pam/testeapi.php/cliente/1",
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                nome: "Cliente Atualizado",
+                categoria: "Categoria B",
+              }),
+            }
+          );
+          const data = await response.json(); // Aguarda o resultado da resposta
+          alert(JSON.stringify(data));
+        } catch (error) {
+          console.error("Erro ao executar solicitação PUT:", error);
+        }
+      }
+
+      async function del() {
+        try {
+          const response = await fetch(
+            "http://localhost/API--Pam/testeapi.php/cliente/1",
+            {
+              method: "DELETE",
+            }
+          );
+          const data = await response.json(); // Aguarda o resultado da resposta
+          alert(JSON.stringify(data));
+        } catch (error) {
+          console.error("Erro ao executar solicitação DELETE:", error);
+        }
+      }
+    </script>
